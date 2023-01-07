@@ -14,7 +14,7 @@ DEBUG = env('DEBUG', default=True)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 INSTALLED_APPS = [
-    "prof.apps.ProfConfig",
+    'prof.apps.ProfConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,7 +78,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = "Asia/Tokyo"
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
