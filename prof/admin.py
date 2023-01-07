@@ -16,6 +16,10 @@ class SkillsInline(admin.TabularInline):
 
 
 class ProfileAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('CAREERS TEXT', {'fields': ['careers_text']}),
+        ('HOBBIES', {'fields': ['hobbies']}),
+    ]
     inlines = [
         CareersListInline,
         SkillsInline
