@@ -1,0 +1,28 @@
+{
+  "name": "jin_prof",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "postcss static/css/tailwind.css -o static/css/dist.css",
+    "watch": "postcss static/css/tailwind.css -o static/css/dist.css --watch",
+    "build": "NODE_ENV=production postcss static/css/tailwind.css -o static/css/dist.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jin1125/jin_prof.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jin1125/jin_prof/issues"
+  },
+  "homepage": "https://github.com/jin1125/jin_prof#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.2.4"
+  }
+}
