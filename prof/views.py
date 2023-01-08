@@ -1,5 +1,7 @@
-from django.http import HttpResponse
+from django.views.generic import ListView
+from .models import Profile
 
 
-def index(request):
-    return HttpResponse("index")
+class IndexView(ListView):
+    model = Profile
+    template_name = 'prof/index.html'
