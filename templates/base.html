@@ -7,13 +7,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{% static 'css/dist.css' %}" />
+  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
   <title>Jin</title>
 </head>
-<body>
+<body class="font-sans antialiased">
 {% block header %}
-<div>
-  header
-</div>
+<header class="sticky top-0 z-10">
+  <div class="bg-base flex font-bold h-14 items-center
+    justify-between px-10 text-white">
+    <h1 class="text-2xl">
+      Shogo Jinta
+    </h1>
+
+    <nav class="space-x-5 md:space-x-10">
+      <a
+        href="{% url 'prof:index' %}"
+        class="space-x-1 hover:opacity-80">
+        <span class="hidden sm:inline-block">
+          Profile
+        </span>
+        <i class="fa-solid fa-address-card"></i>
+      </a>
+
+      <a
+        href="{% url 'prof:study' %}"
+        class="space-x-1 hover:opacity-80">
+        <span class="hidden sm:inline-block">
+          Study
+        </span>
+        <i class="fa-solid fa-book-open"></i>
+      </a>
+
+      <a
+        class="space-x-1 hover:opacity-80"
+        href="https://github.com/jin1125"
+        target="_blank">
+        <span class="hidden sm:inline-block">
+          Github
+        </span>
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </nav>
+  </div>
+</header>
 {% endblock header %}
 
 {% block content %}
