@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import CareersList
 from .models import Profile
 from .models import Skills
+from .models import Study
 
 
 class CareersListInline(admin.TabularInline):
@@ -27,3 +28,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Profile, ProfileAdmin)
+admin.site.register(Study)
