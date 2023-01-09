@@ -1,4 +1,4 @@
 Django
-mysqlclient
 django-environ
 fontawesomefree
+mysqlclient
