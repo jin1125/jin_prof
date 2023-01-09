@@ -21,3 +21,6 @@ class Study(models.Model):
     title = models.CharField(max_length=50)
     comment = models.TextField()
     url = models.URLField()
+
+    def __str__(self):
+        return self.title
