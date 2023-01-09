@@ -5,6 +5,9 @@ class Profile(models.Model):
     careers_text = models.TextField()
     hobbies = models.TextField()
 
+    def __str__(self):
+        return 'jin'
+
 
 class Skills(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
