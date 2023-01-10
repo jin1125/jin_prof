@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div>
-  study
+  <div class="flex items-center mb-10 space-x-5">
+    <img
+      class="w-40"
+      src="{% static 'images/study.png' %}"
+      alt="profile image">
+
+    <h2 class="font-bold text-3xl">
+      Study logs
+    </h2>
+  </div>
 </div>
 {% endblock content %}
