@@ -1,7 +1,84 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div>
-  index
+<div class="grid justify-items-center mb-14 space-y-6
+  md:grid-cols-2 md:space-y-0">
+  <div class="space-y-6 text-center">
+    <img
+      class="rounded-full w-64"
+      src="{% static 'images/profile.png' %}"
+      alt="profile image">
+
+    <div class="font-bold">
+      <h2 class="mb-3 text-3xl">
+        Shogo Jinta
+      </h2>
+      <p>
+        千葉県在住
+      </p>
+      <p>
+        1992年生まれ
+      </p>
+    </div>
+  </div>
+
+  <div class="space-y-14">
+    <div class="space-y-3">
+      <h2 class="font-bold text-3xl">
+        Skills
+      </h2>
+      <p>
+        {% for skills in profile_list.0.skills.all %}
+          {{ skills.skill }}
+        {% endfor %}
+      </p>
+    </div>
+
+    <div>
+      <h2 class="font-bold text-3xl mb-3">
+        Careers
+      </h2>
+      <ol class="font-bold mb-10">
+        {% for careers in profile_list.0.careers_list.all %}
+        <li>
+          {{ careers.id }}. {{ careers.company }}({{ careers.job }})
+        </li>
+        {% endfor %}
+      </ol>
+      <div class="space-y-5 leading-7">
+        <p class="whitespace-pre-wrap">{{ profile_list.0.careers_text }}</p>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <h2 class="font-bold text-3xl">
+        Hobbies
+      </h2>
+      <div>
+        <p class="whitespace-pre-wrap">{{ profile_list.0.hobbies }}</p>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<!-- <div>
+  {% for profile in profile_list %}
+  <p>
+    {{ profile.careers_text }}
+  </p>
+  <p>
+    {{ profile.hobbies }}
+  </p>
+    {% for skills in profile.skills.all %}
+      {{ skills.skill }}
+    {% endfor %}
+
+    {% for careers in profile.careers_list.all %}
+      {{ careers.company }}
+      {{ careers.job }}
+    {% endfor %}
+  {% endfor %}
+</div> -->
 {% endblock content %}

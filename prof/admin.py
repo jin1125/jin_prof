@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models import CareersList
-from .models import Profile
-from .models import Skills
-from .models import Study
+from prof.models import CareersList
+from prof.models import Profile
+from prof.models import Skills
+from prof.models import Study
 
 
 class CareersListInline(admin.TabularInline):

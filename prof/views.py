@@ -1,7 +1,7 @@
 from django.views.generic import ListView
 
-from .models import Profile
-from .models import Study
+from prof.models import Profile
+from prof.models import Study
 
 
 class IndexView(ListView):

@@ -10,12 +10,18 @@ class Profile(models.Model):
 
 
 class Skills(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name='skills')
     skill = models.CharField(max_length=20)
 
 
 class CareersList(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name='careers_list')
     company = models.CharField(max_length=20)
     job = models.CharField(max_length=20)
 
