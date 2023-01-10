@@ -42,9 +42,9 @@
       </h2>
       <ol class="font-bold mb-10">
         {% for careers in profile_list.0.careers_list.all %}
-        <li>
-          {{ forloop.counter }}. {{ careers.company }}({{ careers.job }})
-        </li>
+          <li>
+            {{ forloop.counter }}. {{ careers.company }}({{ careers.job }})
+          </li>
         {% endfor %}
       </ol>
       <div class="space-y-5 leading-7">
