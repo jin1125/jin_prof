@@ -28,8 +28,16 @@ class CareersList(models.Model):
 
 class Study(models.Model):
     title = models.CharField(max_length=50)
-    comment = models.TextField()
     url = models.URLField()
 
     def __str__(self):
         return self.title
+
+
+class Comments(models.Model):
+    study = models.ForeignKey(
+        Study,
+        on_delete=models.CASCADE,
+        related_name='comments')
+    comment = models.TextField()
+    created_at = models.DateField()

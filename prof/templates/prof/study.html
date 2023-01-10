@@ -15,16 +15,23 @@
   </div>
 
   <div class="space-y-8">
-    {% for item in study_list reversed %}
-      <div class="border border-base p-5 rounded-lg shadow-md space-y-3">
+    {% for study in study_list reversed %}
+      <div class="border border-base p-5 rounded-lg shadow-md space-y-5">
         <h2 class="font-bold text-lg hover:opacity-80">
           <a
-            href="{{ item.url }}"
+            href="{{ study.url }}"
             target="_blank">
-            {{ item.title }}
+            {{ study.title }}
           </a>
         </h2>
-        <p class="whitespace-pre-wrap">{{ item.comment }}</p>
+        {% for comments in study.comments.all %}
+          <div class="space-y-1">
+            <p class="opacity-80 text-xs">
+              [{{ comments.created_at | date:"Y/n/j" }}]
+            </p>
+            <p class="whitespace-pre-wrap">{{ comments.comment }}</p>
+          </div>
+        {% endfor %}
       </div>
     {% endfor %}
   </div>
