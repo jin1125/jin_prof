@@ -29,9 +29,10 @@
         Skills
       </h2>
       <p>
-        {% for skills in profile_list.0.skills.all %}
-          {{ skills.skill }}
-        {% endfor %}
+          {% for skills in profile_list.0.skills.all %}
+            {{ skills.skill }}
+            {% if not forloop.last %} / {% endif %}
+          {% endfor %}
       </p>
     </div>
 
@@ -61,24 +62,4 @@
     </div>
   </div>
 </div>
-
-
-<!-- <div>
-  {% for profile in profile_list %}
-  <p>
-    {{ profile.careers_text }}
-  </p>
-  <p>
-    {{ profile.hobbies }}
-  </p>
-    {% for skills in profile.skills.all %}
-      {{ skills.skill }}
-    {% endfor %}
-
-    {% for careers in profile.careers_list.all %}
-      {{ careers.company }}
-      {{ careers.job }}
-    {% endfor %}
-  {% endfor %}
-</div> -->
 {% endblock content %}
