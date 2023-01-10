@@ -1,9 +1,12 @@
+import datetime
 from django.test import TestCase
 from django.urls import resolve
 
 from prof.models import CareersList
+from prof.models import Comments
 from prof.models import Profile
 from prof.models import Skills
+from prof.models import Study
 from prof.views import IndexView
 from prof.views import StudyView
 
@@ -71,3 +74,35 @@ class StudyPageTest(TestCase):
     def test_study_page_uses_expected_template(self):
         response = self.client.get('/study/')
         self.assertTemplateUsed(response, 'prof/study.html')
+
+
+class StudyPageRenderStudyTest(TestCase):
+    def setUp(self):
+        self.study = Study.objects.create(
+            title='title',
+            url='https://github.com/',
+        )
+        self.comments = Comments.objects.create(
+            study=self.study,
+            comment='comment',
+            created_at=datetime.date.today(),
+        )
+
+    def test_should_return_study_title(self):
+        response = self.client.get('/study/')
+        self.assertContains(response, self.study.title)
+
+    def test_should_return_study_url(self):
+        response = self.client.get('/study/')
+        self.assertContains(response, self.study.url)
+
+    def test_should_return_study_comments_comment(self):
+        response = self.client.get('/study/')
+        self.assertContains(response, self.comments.comment)
+
+    def test_should_return_study_comments_created_at(self):
+        response = self.client.get('/study/')
+        self.assertContains(
+            response,
+            self.comments.created_at.strftime('%Y/%m/%d')
+        )
