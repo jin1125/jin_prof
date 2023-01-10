@@ -43,12 +43,12 @@
       <ol class="font-bold mb-10">
         {% for careers in profile_list.0.careers_list.all %}
         <li>
-          {{ careers.id }}. {{ careers.company }}({{ careers.job }})
+          {{ forloop.counter }}. {{ careers.company }}({{ careers.job }})
         </li>
         {% endfor %}
       </ol>
       <div class="space-y-5 leading-7">
-        <p class="whitespace-pre-wrap">{{ profile_list.0.careers_text }}</p>
+        <p class="whitespace-pre-wrap">{{ profile_list.0.careers_text | safe }}</p>
       </div>
     </div>
 
