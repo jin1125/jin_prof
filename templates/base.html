@@ -12,6 +12,10 @@
   <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
   <link rel="icon" href="{% static 'images/favicon.ico' %}">
   <title>Jin</title>
+
+  {% if GOOGLE_ANALYTICS_TRACKING_ID %}
+    {% include 'ga.html' %}
+  {% endif %}
 </head>
 <body class="font-sans antialiased">
   {% block header %}
