@@ -28,6 +28,7 @@ class IndexPageTest(TestCase):
 class IndexPageRenderProfileTest(TestCase):
     def setUp(self):
         self.profile = Profile.objects.create(
+            home_address='home_address',
             careers_text='careers_text',
             hobbies='hobbies',
         )
@@ -40,6 +41,10 @@ class IndexPageRenderProfileTest(TestCase):
             company='company',
             job='job',
         )
+
+    def test_should_return_profile_home_address(self):
+        response = self.client.get('/')
+        self.assertContains(response, self.profile.home_address)
 
     def test_should_return_profile_careers_text(self):
         response = self.client.get('/')
