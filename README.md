@@ -9,6 +9,7 @@ https://shogojinta.com/
 - Django
 - TailwindCSS
 - Docker
+- GitHub Actions
 - Amazon Lightsail
 - Amazon Route 53
 - Ubuntu
