@@ -19,6 +19,7 @@ class SkillsInline(admin.TabularInline):
 
 class ProfileAdmin(admin.ModelAdmin):
     fieldsets = [
+        ('HOME ADDRESS', {'fields': ['home_address']}),
         ('CAREERS TEXT', {'fields': ['careers_text']}),
         ('HOBBIES', {'fields': ['hobbies']}),
     ]
