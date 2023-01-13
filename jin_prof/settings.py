@@ -60,6 +60,7 @@ DATABASES = {
     'default': env.db(),
     'TEST': {
         'MIRROR': 'default',
+        'NAME': 'test_db',
     },
 }
 
