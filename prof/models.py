@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Profile(models.Model):
-    home_address = models.CharField(max_length=10)
+    home_address = models.CharField(max_length=20)
     careers_text = models.TextField()
     hobbies = models.TextField()
 
