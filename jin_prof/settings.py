@@ -57,7 +57,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'jin_prof.wsgi.application'
 
 DATABASES = {
-    'default': env.db()
+    'default': env.db(),
+    'TEST': {
+        'MIRROR': 'default',
+    },
 }
 
 AUTH_PASSWORD_VALIDATORS = [
