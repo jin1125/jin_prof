@@ -99,6 +99,8 @@ if DEBUG:
 else:
     STATIC_ROOT = BASE_DIR / 'static'
 
+ADMIN_PATH = env('ADMIN_PATH', default='admin') + '/'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GOOGLE_ANALYTICS_TRACKING_ID = 'G-GSJGR2540P'
