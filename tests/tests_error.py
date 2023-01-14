@@ -1,5 +1,6 @@
-from django.test import TestCase, RequestFactory
 from django.shortcuts import render
+from django.test import RequestFactory
+from django.test import TestCase
 
 
 class ErrorPagesTest(TestCase):
