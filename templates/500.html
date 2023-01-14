@@ -1,15 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'base_error.html' %}
 
-{% block content %}
-<div class="font-bold pt-10 space-y-16 text-center">
-  <h2 class="text-2xl">
-    Server Error (500)
-  </h2>
-
-  <a
-    href="{% url 'prof:index' %}"
-    class="bg-base inline-block px-10 py-2 rounded-full text-white">
-    Back
-  </a>
-</div>
-{% endblock content %}
+{% block error_message %}
+Server Error (500)
+{% endblock error_message %}
