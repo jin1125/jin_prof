@@ -1,3 +1,4 @@
+from django.db.models import Max
 from django.views.generic import ListView
 
 from prof.models import Profile
@@ -10,5 +11,9 @@ class IndexView(ListView):
 
 
 class StudyView(ListView):
-    model = Study
     template_name = 'prof/study.html'
+
+    def get_queryset(self):
+        return Study.objects.annotate(
+            latest_created_at=Max('comments__created_at')
+        ).order_by('-latest_created_at')
