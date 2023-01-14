@@ -3,58 +3,15 @@ from pathlib import Path
 import environ
 
 
+"""環境変数設定"""
 env = environ.Env()
 env.read_env('.env')
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = env('SECRET_KEY')
-
-DEBUG = env.bool('DEBUG', default=True)
+ADMIN_PATH = env('ADMIN_PATH', default='admin') + '/'
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
-INSTALLED_APPS = [
-    'prof.apps.ProfConfig',
-    'fontawesomefree',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-ROOT_URLCONF = 'jin_prof.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'jin_prof.context_processors.google_analytics',
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-WSGI_APPLICATION = 'jin_prof.wsgi.application'
+DEBUG = env.bool('DEBUG', default=True)
 
 DATABASES = {
     'default': env.db(),
@@ -63,6 +20,12 @@ DATABASES = {
     },
 }
 
+SECRET_KEY = env('SECRET_KEY')
+
+"""カスタム設定"""
+GOOGLE_ANALYTICS_TRACKING_ID = 'G-GSJGR2540P'
+
+"""Django設定"""
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.'
@@ -82,7 +45,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ROOT_URLCONF = 'jin_prof.urls'
+
 LANGUAGE_CODE = 'ja'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'jin_prof.context_processors.google_analytics',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 TIME_ZONE = 'Asia/Tokyo'
 
@@ -90,6 +76,32 @@ USE_I18N = True
 
 USE_TZ = True
 
+WSGI_APPLICATION = 'jin_prof.wsgi.application'
+
+"""アプリケーション設定"""
+INSTALLED_APPS = [
+    'prof.apps.ProfConfig',
+    'fontawesomefree',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+"""ミドルウェア設定"""
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+"""Staticファイル設定"""
 STATIC_URL = 'static/'
 
 if DEBUG:
@@ -98,9 +110,3 @@ if DEBUG:
     ]
 else:
     STATIC_ROOT = BASE_DIR / 'static'
-
-ADMIN_PATH = env('ADMIN_PATH', default='admin') + '/'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-GOOGLE_ANALYTICS_TRACKING_ID = 'G-GSJGR2540P'
