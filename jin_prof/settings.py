@@ -3,7 +3,7 @@ from pathlib import Path
 import environ
 
 
-"""環境変数設定"""
+# 環境変数設定
 env = environ.Env()
 env.read_env('.env')
 
@@ -22,10 +22,10 @@ DATABASES = {
 
 SECRET_KEY = env('SECRET_KEY')
 
-"""カスタム設定"""
+# カスタム設定
 GOOGLE_ANALYTICS_TRACKING_ID = 'G-GSJGR2540P'
 
-"""Django設定"""
+# Django設定
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.'
@@ -78,7 +78,7 @@ USE_TZ = True
 
 WSGI_APPLICATION = 'jin_prof.wsgi.application'
 
-"""アプリケーション設定"""
+# アプリケーション設定
 INSTALLED_APPS = [
     'prof.apps.ProfConfig',
     'fontawesomefree',
@@ -90,7 +90,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-"""ミドルウェア設定"""
+# ミドルウェア設定
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -101,7 +101,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-"""Staticファイル設定"""
+# Staticファイル設定
 STATIC_URL = 'static/'
 
 if DEBUG:
