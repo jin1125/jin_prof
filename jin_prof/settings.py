@@ -1,3 +1,13 @@
+"""
+Djangoの設定ファイル
+
+1. 環境変数設定
+2. カスタム設定
+3. Django設定
+4. アプリケーション設定
+5. ミドルウェア設定
+6. Staticファイル設定
+"""
 from pathlib import Path
 
 import environ

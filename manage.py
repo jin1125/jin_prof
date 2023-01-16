@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""管理タスクのコマンド実行用ファイル"""
 import os
 import sys
 

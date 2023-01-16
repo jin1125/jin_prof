@@ -1,3 +1,12 @@
+"""
+profアプリケーションのモデル定義ファイル
+
+1. Profileモデル
+2. Skillsモデル
+3. CareersListモデル
+4. Studyモデル
+5. Commentsモデル
+"""
 from django.db import models
 
 

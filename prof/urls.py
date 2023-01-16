@@ -1,3 +1,9 @@
+"""
+profアプリケーションのルーティング定義ファイル
+
+1. indexページのURL
+2. studyページのURL
+"""
 from django.urls import path
 
 from prof import views

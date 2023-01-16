@@ -1,3 +1,4 @@
+"""Google AnalyticsトラッキングID設定ファイル"""
 from django.conf import settings
 
 

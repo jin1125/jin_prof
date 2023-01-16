@@ -1,3 +1,4 @@
+"""profアプリケーション設定ファイル"""
 from django.apps import AppConfig
 
 

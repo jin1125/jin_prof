@@ -1,3 +1,11 @@
+"""
+profアプリケーションのテストコードファイル
+
+1. IndexViewに対するテスト
+2. IndexViewに対するテスト(Profileのレンダリング)
+3. StudyViewに対するテスト
+4. StudyViewに対するテスト(Studyのレンダリング)
+"""
 import datetime
 from django.test import TestCase
 from django.urls import resolve
