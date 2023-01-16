@@ -9,16 +9,19 @@ from prof.models import Study
 
 
 class CareersListInline(admin.TabularInline):
+    """ProfileでのCareersListモデルのインライン表示設定"""
     model = CareersList
     extra = 1
 
 
 class SkillsInline(admin.TabularInline):
+    """ProfileでのSkillsモデルのインライン表示設定"""
     model = Skills
     extra = 1
 
 
 class ProfileAdmin(admin.ModelAdmin):
+    """管理サイトでのProfileモデル表示設定"""
     fieldsets = [
         ('HOME ADDRESS', {'fields': ['home_address']}),
         ('CAREERS TEXT', {'fields': ['careers_text']}),
@@ -31,11 +34,13 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 class CommentsInline(admin.TabularInline):
+    """StudyでのCommentsモデルのインライン表示設定"""
     model = Comments
     extra = 1
 
 
 class StudyAdmin(admin.ModelAdmin):
+    """管理サイトでのStudyモデル表示設定"""
     fieldsets = [
         ('TITLE', {'fields': ['title']}),
         ('URL', {'fields': ['url']}),

@@ -2,9 +2,9 @@
 profアプリケーションのテストコードファイル
 
 1. IndexViewに対するテスト
-2. IndexViewに対するテスト(Profileのレンダリング)
+2. IndexViewに対するテスト(Profileモデルのレンダリング)
 3. StudyViewに対するテスト
-4. StudyViewに対するテスト(Studyのレンダリング)
+4. StudyViewに対するテスト(Studyモデルのレンダリング)
 """
 import datetime
 from django.test import TestCase
@@ -20,6 +20,7 @@ from prof.views import StudyView
 
 
 class IndexPageTest(TestCase):
+    """IndexViewに対するテスト"""
     def test_index_page_returns_200(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
@@ -34,6 +35,7 @@ class IndexPageTest(TestCase):
 
 
 class IndexPageRenderProfileTest(TestCase):
+    """IndexViewに対するテスト(Profileモデルのレンダリング)"""
     def setUp(self):
         self.profile = Profile.objects.create(
             home_address='home_address',
@@ -76,6 +78,7 @@ class IndexPageRenderProfileTest(TestCase):
 
 
 class StudyPageTest(TestCase):
+    """StudyViewに対するテスト"""
     def test_study_page_returns_200(self):
         response = self.client.get('/study/')
         self.assertEqual(response.status_code, 200)
@@ -90,6 +93,7 @@ class StudyPageTest(TestCase):
 
 
 class StudyPageRenderStudyTest(TestCase):
+    """StudyViewに対するテスト(Studyモデルのレンダリング)"""
     def setUp(self):
         self.study = Study.objects.create(
             title='title',

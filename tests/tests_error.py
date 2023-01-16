@@ -5,6 +5,7 @@ from django.test import TestCase
 
 
 class ErrorPagesTest(TestCase):
+    """エラーページに対するテスト"""
     def setUp(self):
         self.factory = RequestFactory()
 

@@ -11,6 +11,7 @@ from django.db import models
 
 
 class Profile(models.Model):
+    """Profileモデルを定義"""
     home_address = models.CharField(max_length=20)
     careers_text = models.TextField()
     hobbies = models.TextField()
@@ -20,6 +21,7 @@ class Profile(models.Model):
 
 
 class Skills(models.Model):
+    """Skillsモデルを定義"""
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
@@ -28,6 +30,7 @@ class Skills(models.Model):
 
 
 class CareersList(models.Model):
+    """CareersListモデルを定義"""
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
@@ -37,6 +40,7 @@ class CareersList(models.Model):
 
 
 class Study(models.Model):
+    """Studyモデルを定義"""
     title = models.CharField(max_length=100)
     url = models.URLField()
 
@@ -45,6 +49,7 @@ class Study(models.Model):
 
 
 class Comments(models.Model):
+    """Commentsモデルを定義"""
     study = models.ForeignKey(
         Study,
         on_delete=models.CASCADE,

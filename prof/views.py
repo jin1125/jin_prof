@@ -12,11 +12,13 @@ from prof.models import Study
 
 
 class IndexView(ListView):
+    """Profileモデルをリスト表示するビューを定義"""
     model = Profile
     template_name = 'prof/index.html'
 
 
 class StudyView(ListView):
+    """Studyモデルをリスト表示するビューを定義"""
     template_name = 'prof/study.html'
 
     def get_queryset(self):
