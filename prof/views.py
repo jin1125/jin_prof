@@ -19,17 +19,7 @@ class IndexView(ListView):
 
 class StudyView(ListView):
     """Studyモデルをリスト表示するビューを定義"""
+    queryset = Study.objects.annotate(
+        latest_created_at=Max('comments__created_at')
+    ).order_by('-latest_created_at')
     template_name = 'prof/study.html'
-
-    def get_queryset(self):
-        """
-        参照しているCommentsモデルのコメント作成日が最新の順でStudyモデルを取得
-
-        Returns
-        -------
-        study_model: django.db.models.query.QuerySet
-            Studyモデル(参照しているCommentsモデルのコメント作成日の最新順)
-        """
-        return Study.objects.annotate(
-            latest_created_at=Max('comments__created_at')
-        ).order_by('-latest_created_at')
