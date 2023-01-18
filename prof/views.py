@@ -13,12 +13,14 @@ from prof.models import Study
 
 class IndexView(ListView):
     """Profileモデルをリスト表示するビューを定義"""
+    context_object_name = "profile_list"
     model = Profile
     template_name = 'prof/index.html'
 
 
 class StudyView(ListView):
     """Studyモデルをリスト表示するビューを定義"""
+    context_object_name = "study_list"
     queryset = Study.objects.annotate(
         latest_created_at=Max('comments__created_at')
     ).order_by('-latest_created_at')
