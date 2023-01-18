@@ -17,6 +17,14 @@ class Profile(models.Model):
     hobbies = models.TextField()
 
     def __str__(self):
+        """
+        管理画面のレコードを判別するためのタイトルを定義する
+
+        Returns
+        -------
+        record_title: str
+            管理画面のレコードを判別するためのタイトル
+        """
         return 'jin'
 
 
@@ -45,6 +53,14 @@ class Study(models.Model):
     url = models.URLField()
 
     def __str__(self):
+        """
+        管理画面のレコードを判別するためのタイトルを定義する
+
+        Returns
+        -------
+        record_title: str
+            管理画面のレコードを判別するためのタイトル
+        """
         return self.title
 
 

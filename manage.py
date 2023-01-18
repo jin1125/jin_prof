@@ -5,6 +5,7 @@ import sys
 
 
 def main():
+    """管理タスクを実行"""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jin_prof.settings')
     try:
         from django.core.management import execute_from_command_line

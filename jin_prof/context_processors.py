@@ -3,6 +3,19 @@ from django.conf import settings
 
 
 def google_analytics(request):
+    """
+    DEBUG=Falseの場合に、Google AnalyticsのトラッキングIDを返す
+
+    Parameters
+    ----------
+    request: django.core.handlers.wsgi.WSGIRequest
+        リクエストオブジェクト
+
+    Returns
+    -------
+    GOOGLE_ANALYTICS_TRACKING_ID: dict
+        Google AnalyticsトラッキングID
+    """
     ga_tracking_id = getattr(settings, 'GOOGLE_ANALYTICS_TRACKING_ID', False)
     if not settings.DEBUG and ga_tracking_id:
         return {
