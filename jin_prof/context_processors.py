@@ -4,7 +4,8 @@ from django.conf import settings
 
 def google_analytics(request):
     """
-    DEBUG=Falseの場合に、Google AnalyticsのトラッキングIDを返す
+    Google Analytics トラッキングIDを返す
+    DEBUG=Falseの場合にのみ有効
 
     Parameters
     ----------
