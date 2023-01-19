@@ -2,7 +2,7 @@
 from django.conf import settings
 
 
-def google_analytics(request):
+def get_ga_tracking_id(request):
     """
     Google Analytics トラッキングIDを返す
     DEBUG=Falseの場合にのみ有効

@@ -70,7 +70,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'jin_prof.context_processors.google_analytics',
+                'jin_prof.context_processors.get_ga_tracking_id',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
