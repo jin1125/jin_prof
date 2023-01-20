@@ -48,6 +48,7 @@ class StudyAdmin(admin.ModelAdmin):
     inlines = [
         CommentsInline
     ]
+    search_fields = ['title']
 
 
 admin.site.register(Profile, ProfileAdmin)
