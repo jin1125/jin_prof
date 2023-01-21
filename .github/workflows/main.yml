@@ -1,4 +1,4 @@
-name: CI / CD
+name: CI/CD
 
 on:
   push:
@@ -26,37 +26,42 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
-          - uses: actions/checkout@v3
-          - name: Set up Python ${{ matrix.python-version }}
-            uses: actions/setup-python@v4
-            with:
-              python-version: ${{ matrix.python-version }}
-          - name: Install Dependencies
-            run: |
-              sudo mkdir -p /var/log/jin_prof
-              sudo chown -R runner /var/log/jin_prof
-              python -m pip install --upgrade pip
-              pip install -r requirements.txt
-          - name: Run Tests
-            env:
-              SECRET_KEY: ${{ secrets.SECRET_KEY }}
-              DATABASE_URL: ${{ secrets.DATABASE_URL }}
-            run: |
-              python manage.py makemigrations
-              python manage.py migrate
-              python manage.py test
-          - name: Deploy
-            uses: appleboy/ssh-action@master
-            with:
-              host: ${{ secrets.DEPLOY_HOST }}
-              username: ${{ secrets.DEPLOY_USER }}
-              port: ${{ secrets.DEPLOY_PORT }}
-              key: ${{ secrets.DEPLOY_KEY }}
-              script: |
-                cd ${{ secrets.DEPLOY_DIR }}
-                workon venv
-                sudo git pull origin main
-                pip3 install -r requirements.txt
-                python3 manage.py migrate
-                python3 manage.py collectstatic --noinput
-                sudo systemctl restart gunicorn
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Dependencies
+        run: |
+          sudo mkdir -p /var/log/jin_prof
+          sudo chown -R runner /var/log/jin_prof
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          python manage.py makemigrations
+          python manage.py migrate
+          python manage.py test
+
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd ${{ secrets.DEPLOY_DIR }}
+            workon venv
+            sudo git pull origin main
+            pip3 install -r requirements.txt
+            python3 manage.py migrate
+            python3 manage.py collectstatic --noinput
+            sudo systemctl restart gunicorn
