@@ -19,11 +19,7 @@ jobs:
           TZ: "Asia/Tokyo"
         ports:
           - 3306:3306
-        options:
-          - --health-cmd "mysqladmin ping -h 127.0.0.1"
-          - --health-interval 20s
-          - --health-timeout 10s
-          - --health-retries 10
+        options: --health-cmd "mysqladmin ping -h 127.0.0.1" --health-interval 20s --health-timeout 10s --health-retries 10
 
     strategy:
       matrix:
