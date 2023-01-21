@@ -34,7 +34,7 @@ jobs:
           - name: Install Dependencies
             run: |
               sudo mkdir -p /var/log/jin_prof
-              sudo chmod -R 777 /var/log/jin_prof
+              sudo chown -R runner /var/log/jin_prof
               python -m pip install --upgrade pip
               pip install -r requirements.txt
           - name: Run Tests
