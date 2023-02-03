@@ -1,4 +1,4 @@
-"""ASGIアプリケーション設定ファイル"""
+"""ASGIアプリケーションの設定ファイル"""
 import os
 
 from django.core.asgi import get_asgi_application

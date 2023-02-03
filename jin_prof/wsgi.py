@@ -1,4 +1,4 @@
-"""WSGIアプリケーション設定ファイル"""
+"""WSGIアプリケーションの設定ファイル"""
 import os
 
 from django.core.wsgi import get_wsgi_application
