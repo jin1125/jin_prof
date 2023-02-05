@@ -1,8 +1,8 @@
 """
-profアプリケーションのルーティング定義ファイル
+profアプリケーションのURLマッピング定義ファイル
 
-1. indexページのURL
-2. studyページのURL
+1. indexページ
+2. studyページ
 """
 from django.urls import path
 
