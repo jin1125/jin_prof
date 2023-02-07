@@ -23,17 +23,17 @@ from prof.views import StudyView
 
 class IndexPageTest(TestCase):
     """IndexViewに対するテスト"""
-    def test_index_page_returns_200(self):
+    def test_get_return_200(self):
         """ステータスコード200のレスポンスが返ってくるかテスト"""
         response = self.client.get(reverse('prof:index'))
         self.assertEqual(response.status_code, 200)
 
-    def test_index_page_uses_expected_view(self):
+    def test_uses_expected_view(self):
         """URLパスとビューがマッピングされているかテスト"""
         view = resolve(reverse('prof:index'))
         self.assertEqual(view.func.view_class, IndexView)
 
-    def test_index_page_uses_expected_template(self):
+    def test_uses_expected_template(self):
         """想定したテンプレートのレスポンスが返ってくるかテスト"""
         response = self.client.get(reverse('prof:index'))
         self.assertTemplateUsed(response, 'prof/index.html')
@@ -91,17 +91,17 @@ class IndexPageRenderProfileTest(TestCase):
 
 class StudyPageTest(TestCase):
     """StudyViewに対するテスト"""
-    def test_study_page_returns_200(self):
+    def test_get_return_200(self):
         """ステータスコード200のレスポンスが返ってくるかテスト"""
         response = self.client.get(reverse('prof:study'))
         self.assertEqual(response.status_code, 200)
 
-    def test_study_page_uses_expected_view(self):
+    def test_uses_expected_view(self):
         """URLパスとビューがマッピングされているかテスト"""
         view = resolve(reverse('prof:study'))
         self.assertEqual(view.func.view_class, StudyView)
 
-    def test_study_page_uses_expected_template(self):
+    def test_uses_expected_template(self):
         """想定したテンプレートのレスポンスが返ってくるかテスト"""
         response = self.client.get(reverse('prof:study'))
         self.assertTemplateUsed(response, 'prof/study.html')
