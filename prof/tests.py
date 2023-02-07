@@ -58,32 +58,32 @@ class IndexPageRenderProfileTest(TestCase):
         )
 
     def test_should_return_profile_home_address(self):
-        """DBの「home_address」がレスポンスとして返ってくるかテスト"""
+        """DBの「home_address」が表示されるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.profile.home_address)
 
     def test_should_return_profile_careers_text(self):
-        """DBの「careers_text」がレスポンスとして返ってくるかテスト"""
+        """DBの「careers_text」が表示されるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.profile.careers_text)
 
     def test_should_return_profile_hobbies(self):
-        """DBの「hobbies」がレスポンスとして返ってくるかテスト"""
+        """DBの「hobbies」が表示されるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.profile.hobbies)
 
     def test_should_return_profile_skills_skill(self):
-        """DBの「skill」がレスポンスとして返ってくるかテスト"""
+        """DBの「skill」が表示されるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.skills.skill)
 
     def test_should_return_profile_careers_list_company(self):
-        """DBの「company」がレスポンスとして返ってくるかテスト"""
+        """DBの「company」が表示されるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.careers_list.company)
 
     def test_should_return_profile_careers_list_job(self):
-        """DBの「job」がレスポンスとして返ってくるかテスト"""
+        """DBの「job」が表示されるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.careers_list.job)
 
@@ -121,22 +121,22 @@ class StudyPageRenderStudyTest(TestCase):
         )
 
     def test_should_return_study_title(self):
-        """DBの「title」がレスポンスとして返ってくるかテスト"""
+        """DBの「title」が表示されるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(response, self.study.title)
 
     def test_should_return_study_url(self):
-        """DBの「url」がレスポンスとして返ってくるかテスト"""
+        """DBの「url」が表示されるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(response, self.study.url)
 
     def test_should_return_study_comments_comment(self):
-        """DBの「comment」がレスポンスとして返ってくるかテスト"""
+        """DBの「comment」が表示されるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(response, self.comments.comment)
 
     def test_should_return_study_comments_created_at(self):
-        """DBの「created_at」がレスポンスとして返ってくるかテスト"""
+        """DBの「created_at」が表示されるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(
             response,
