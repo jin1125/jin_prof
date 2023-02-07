@@ -7,6 +7,7 @@ profアプリケーションのテストコードファイル
 4. StudyViewに対するテスト(Studyモデルのレンダリング)
 """
 import datetime
+
 from django.test import TestCase
 from django.urls import resolve
 
@@ -22,23 +23,17 @@ from prof.views import StudyView
 class IndexPageTest(TestCase):
     """IndexViewに対するテスト"""
     def test_index_page_returns_200(self):
-        """
-        /にGETリクエストを行い、
-        ステータス200のレスポンスが返ってくるかテスト
-        """
+        """ステータスコード200のレスポンスが返ってくるかテスト"""
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
     def test_index_page_uses_expected_view(self):
-        """/にIndexViewが関連付いているかテスト"""
+        """URLパスとビューがマッピングされているかテスト"""
         view = resolve('/')
         self.assertEqual(view.func.view_class, IndexView)
 
     def test_index_page_uses_expected_template(self):
-        """
-        /にGETリクエストを行い、
-        prof/index.htmlテンプレートがレスポンスで返ってくるかテスト
-        """
+        """想定したテンプレートのレスポンスが返ってくるかテスト"""
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'prof/index.html')
 
@@ -63,50 +58,32 @@ class IndexPageRenderProfileTest(TestCase):
         )
 
     def test_should_return_profile_home_address(self):
-        """
-        /にGETリクエストを行い、
-        home_addressの値がページに表示されるかテスト
-        """
+        """DBの「home_address」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.profile.home_address)
 
     def test_should_return_profile_careers_text(self):
-        """
-        /にGETリクエストを行い、
-        careers_textの値がページに表示されるかテスト
-        """
+        """DBの「careers_text」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.profile.careers_text)
 
     def test_should_return_profile_hobbies(self):
-        """
-        /にGETリクエストを行い、
-        hobbiesの値がページに表示されるかテスト
-        """
+        """DBの「hobbies」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.profile.hobbies)
 
     def test_should_return_profile_skills_skill(self):
-        """
-        /にGETリクエストを行い、
-        skillの値がページに表示されるかテスト
-        """
+        """DBの「skill」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.skills.skill)
 
     def test_should_return_profile_careers_list_company(self):
-        """
-        /にGETリクエストを行い、
-        companyの値がページに表示されるかテスト
-        """
+        """DBの「company」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.careers_list.company)
 
     def test_should_return_profile_careers_list_job(self):
-        """
-        /にGETリクエストを行い、
-        jobの値がページに表示されるかテスト
-        """
+        """DBの「job」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/')
         self.assertContains(response, self.careers_list.job)
 
@@ -114,23 +91,17 @@ class IndexPageRenderProfileTest(TestCase):
 class StudyPageTest(TestCase):
     """StudyViewに対するテスト"""
     def test_study_page_returns_200(self):
-        """
-        /study/にGETリクエストを行い、
-        ステータス200のレスポンスが返ってくるかテスト
-        """
+        """ステータスコード200のレスポンスが返ってくるかテスト"""
         response = self.client.get('/study/')
         self.assertEqual(response.status_code, 200)
 
     def test_study_page_uses_expected_view(self):
-        """/study/にStudyViewが関連付いているかテスト"""
+        """URLパスとビューがマッピングされているかテスト"""
         view = resolve('/study/')
         self.assertEqual(view.func.view_class, StudyView)
 
     def test_study_page_uses_expected_template(self):
-        """
-        /study/にGETリクエストを行い、
-        prof/study.htmlテンプレートがレスポンスで返ってくるかテスト
-        """
+        """想定したテンプレートのレスポンスが返ってくるかテスト"""
         response = self.client.get('/study/')
         self.assertTemplateUsed(response, 'prof/study.html')
 
@@ -150,34 +121,22 @@ class StudyPageRenderStudyTest(TestCase):
         )
 
     def test_should_return_study_title(self):
-        """
-        /study/にGETリクエストを行い、
-        titleの値がページに表示されるかテスト
-        """
+        """DBの「title」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(response, self.study.title)
 
     def test_should_return_study_url(self):
-        """
-        /study/にGETリクエストを行い、
-        urlの値がページに表示されるかテスト
-        """
+        """DBの「url」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(response, self.study.url)
 
     def test_should_return_study_comments_comment(self):
-        """
-        /study/にGETリクエストを行い、
-        commentの値がページに表示されるかテスト
-        """
+        """DBの「comment」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(response, self.comments.comment)
 
     def test_should_return_study_comments_created_at(self):
-        """
-        /study/にGETリクエストを行い、
-        created_atの値がページに表示されるかテスト
-        """
+        """DBの「created_at」がレスポンスとして返ってくるかテスト"""
         response = self.client.get('/study/')
         self.assertContains(
             response,
