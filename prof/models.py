@@ -33,7 +33,8 @@ class Skills(models.Model):
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name='skills')
+        related_name='skills'
+    )
     skill = models.CharField(max_length=20)
 
 
@@ -42,7 +43,8 @@ class CareersList(models.Model):
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name='careers_list')
+        related_name='careers_list'
+    )
     company = models.CharField(max_length=20)
     job = models.CharField(max_length=20)
 
@@ -69,6 +71,7 @@ class Comments(models.Model):
     study = models.ForeignKey(
         Study,
         on_delete=models.CASCADE,
-        related_name='comments')
+        related_name='comments'
+    )
     comment = models.TextField()
     created_at = models.DateField()
