@@ -28,9 +28,11 @@
         {% for comments in study.comments.all %}
           <div class="space-y-1">
             <p class="opacity-80 text-xs">
-              [{{ comments.created_at | date:"Y/m/d" }}]
+              [{{ comments.created_at|date:"Y/m/d" }}]
             </p>
-            <p class="whitespace-pre-wrap">{{ comments.comment }}</p>
+            <p>
+              {{ comments.comment|linebreaks }}
+            </p>
           </div>
         {% endfor %}
       </div>

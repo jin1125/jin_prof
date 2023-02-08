@@ -51,7 +51,9 @@
         {% endfor %}
       </ol>
       <div class="space-y-5 leading-7">
-        <p class="whitespace-pre-wrap">{{ profile_list.0.careers_text | safe }}</p>
+        <p>
+          {{ profile_list.0.careers_text|safe|linebreaksbr }}
+        </p>
       </div>
     </div>
 
@@ -60,7 +62,9 @@
         Hobbies
       </h2>
       <div>
-        <p class="whitespace-pre-wrap">{{ profile_list.0.hobbies }}</p>
+        <p>
+          {{ profile_list.0.hobbies|linebreaks }}
+        </p>
       </div>
     </div>
   </div>
