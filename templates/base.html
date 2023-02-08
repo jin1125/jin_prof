@@ -12,18 +12,15 @@
   <link
     href="{% static 'fontawesomefree/css/fontawesome.css' %}"
     rel="stylesheet"
-    type="text/css"
-  >
+    type="text/css">
   <link
     href="{% static 'fontawesomefree/css/brands.css' %}"
     rel="stylesheet"
-    type="text/css"
-  >
+    type="text/css">
   <link
     href="{% static 'fontawesomefree/css/solid.css' %}"
     rel="stylesheet"
-    type="text/css"
-  >
+    type="text/css">
   <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
   <title>Jin</title>
@@ -35,9 +32,9 @@
 <body class="font-sans antialiased">
   {% block header %}
   <header class="sticky top-0 z-10">
-    <div class="bg-base flex font-bold h-14 items-center
-      justify-between px-10 text-white"
-    >
+    <div
+      class="bg-base flex font-bold h-14 items-center
+        justify-between px-10 text-white">
       <h1 class="text-2xl">
         Shogo Jinta
       </h1>
@@ -45,8 +42,7 @@
       <nav class="space-x-5 md:space-x-10">
         <a
           href="{% url 'prof:index' %}"
-          class="space-x-1 hover:opacity-80"
-        >
+          class="space-x-1 hover:opacity-80">
           <span class="hidden sm:inline-block">
             Profile
           </span>
@@ -55,8 +51,7 @@
 
         <a
           href="{% url 'prof:study' %}"
-          class="space-x-1 hover:opacity-80"
-        >
+          class="space-x-1 hover:opacity-80">
           <span class="hidden sm:inline-block">
             Study
           </span>
@@ -66,8 +61,7 @@
         <a
           class="space-x-1 hover:opacity-80"
           href="https://github.com/jin1125"
-          target="_blank"
-        >
+          target="_blank">
           <span class="hidden sm:inline-block">
             Github
           </span>
