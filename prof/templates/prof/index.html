@@ -33,7 +33,9 @@
       <p>
         {% for skills in profile_list.0.skills.all %}
           {{ skills.skill }}
-          {% if not forloop.last %} / {% endif %}
+          {% if not forloop.last %}
+            /
+          {% endif %}
         {% endfor %}
       </p>
     </div>
