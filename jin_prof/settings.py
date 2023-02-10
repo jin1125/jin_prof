@@ -77,7 +77,7 @@ LOGGING = {
     'formatters': {
         'base': {
             'format': '[%(levelname)s] %(asctime)s '
-                      '%(pathname)s:%(lineno)d %(message)s'
+            '%(pathname)s:%(lineno)d %(message)s',
         },
     },
     'handlers': {

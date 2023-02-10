@@ -141,5 +141,5 @@ class StudyPageRenderStudyTest(TestCase):
         response = self.client.get(reverse('prof:study'))
         self.assertContains(
             response,
-            self.comments.created_at.strftime('%Y/%m/%d')
+            self.comments.created_at.strftime('%Y/%m/%d'),
         )

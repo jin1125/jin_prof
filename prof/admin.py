@@ -29,7 +29,7 @@ class ProfileAdmin(admin.ModelAdmin):
     ]
     inlines = [
         CareersListInline,
-        SkillsInline
+        SkillsInline,
     ]
 
 
@@ -46,7 +46,7 @@ class StudyAdmin(admin.ModelAdmin):
         ('URL', {'fields': ['url']}),
     ]
     inlines = [
-        CommentsInline
+        CommentsInline,
     ]
     search_fields = ['title']
 

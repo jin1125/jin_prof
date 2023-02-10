@@ -22,6 +22,6 @@ class StudyView(ListView):
     """Studyモデルをリスト表示する処理を定義"""
     context_object_name = "study_list"
     queryset = Study.objects.annotate(
-        latest_created_at=Max('comments__created_at')
+        latest_created_at=Max('comments__created_at'),
     ).order_by('-latest_created_at')
     template_name = 'prof/study.html'
