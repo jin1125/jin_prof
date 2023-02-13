@@ -37,50 +37,51 @@ class IndexPageTest(TestCase):
             company='company',
             job='job',
         )
+        self.index_path = reverse('prof:index')
 
     def test_get_return_200(self):
         """ステータスコード200のレスポンスが返ってくるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertEqual(response.status_code, 200)
 
     def test_uses_expected_view(self):
         """URLパスとビューがマッピングされているかテスト"""
-        view = resolve(reverse('prof:index'))
+        view = resolve(self.index_path)
         self.assertEqual(view.func.view_class, IndexView)
 
     def test_uses_expected_template(self):
         """想定したテンプレートのレスポンスが返ってくるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertTemplateUsed(response, 'prof/index.html')
 
     def test_should_return_profile_home_address(self):
         """DBの「home_address」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertContains(response, self.profile.home_address)
 
     def test_should_return_profile_careers_text(self):
         """DBの「careers_text」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertContains(response, self.profile.careers_text)
 
     def test_should_return_profile_hobbies(self):
         """DBの「hobbies」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertContains(response, self.profile.hobbies)
 
     def test_should_return_profile_skills_skill(self):
         """DBの「skill」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertContains(response, self.skills.skill)
 
     def test_should_return_profile_careers_list_company(self):
         """DBの「company」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertContains(response, self.careers_list.company)
 
     def test_should_return_profile_careers_list_job(self):
         """DBの「job」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:index'))
+        response = self.client.get(self.index_path)
         self.assertContains(response, self.careers_list.job)
 
 
@@ -97,40 +98,41 @@ class StudyPageTest(TestCase):
             comment='comment',
             created_at=datetime.date.today(),
         )
+        self.study_path = reverse('prof:study')
 
     def test_get_return_200(self):
         """ステータスコード200のレスポンスが返ってくるかテスト"""
-        response = self.client.get(reverse('prof:study'))
+        response = self.client.get(self.study_path)
         self.assertEqual(response.status_code, 200)
 
     def test_uses_expected_view(self):
         """URLパスとビューがマッピングされているかテスト"""
-        view = resolve(reverse('prof:study'))
+        view = resolve(self.study_path)
         self.assertEqual(view.func.view_class, StudyView)
 
     def test_uses_expected_template(self):
         """想定したテンプレートのレスポンスが返ってくるかテスト"""
-        response = self.client.get(reverse('prof:study'))
+        response = self.client.get(self.study_path)
         self.assertTemplateUsed(response, 'prof/study.html')
 
     def test_should_return_study_title(self):
         """DBの「title」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:study'))
+        response = self.client.get(self.study_path)
         self.assertContains(response, self.study.title)
 
     def test_should_return_study_url(self):
         """DBの「url」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:study'))
+        response = self.client.get(self.study_path)
         self.assertContains(response, self.study.url)
 
     def test_should_return_study_comments_comment(self):
         """DBの「comment」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:study'))
+        response = self.client.get(self.study_path)
         self.assertContains(response, self.comments.comment)
 
     def test_should_return_study_comments_created_at(self):
         """DBの「created_at」が表示されるかテスト"""
-        response = self.client.get(reverse('prof:study'))
+        response = self.client.get(self.study_path)
         self.assertContains(
             response,
             self.comments.created_at.strftime('%Y/%m/%d'),
