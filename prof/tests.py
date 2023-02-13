@@ -1,10 +1,8 @@
 """
 profアプリケーションのテストコードファイル
 
-1. IndexViewに対するテスト
-2. IndexViewに対するテスト(Profileモデルのレンダリング)
-3. StudyViewに対するテスト
-4. StudyViewに対するテスト(Studyモデルのレンダリング)
+1. Index
+2. Study
 """
 import datetime
 
@@ -22,25 +20,7 @@ from prof.views import StudyView
 
 
 class IndexPageTest(TestCase):
-    """IndexViewに対するテスト"""
-    def test_get_return_200(self):
-        """ステータスコード200のレスポンスが返ってくるかテスト"""
-        response = self.client.get(reverse('prof:index'))
-        self.assertEqual(response.status_code, 200)
-
-    def test_uses_expected_view(self):
-        """URLパスとビューがマッピングされているかテスト"""
-        view = resolve(reverse('prof:index'))
-        self.assertEqual(view.func.view_class, IndexView)
-
-    def test_uses_expected_template(self):
-        """想定したテンプレートのレスポンスが返ってくるかテスト"""
-        response = self.client.get(reverse('prof:index'))
-        self.assertTemplateUsed(response, 'prof/index.html')
-
-
-class IndexPageRenderProfileTest(TestCase):
-    """IndexViewに対するテスト(Profileモデルのレンダリング)"""
+    """Indexのテスト"""
     def setUp(self):
         """"テストの初期設定"""
         self.profile = Profile.objects.create(
@@ -57,6 +37,21 @@ class IndexPageRenderProfileTest(TestCase):
             company='company',
             job='job',
         )
+
+    def test_get_return_200(self):
+        """ステータスコード200のレスポンスが返ってくるかテスト"""
+        response = self.client.get(reverse('prof:index'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_uses_expected_view(self):
+        """URLパスとビューがマッピングされているかテスト"""
+        view = resolve(reverse('prof:index'))
+        self.assertEqual(view.func.view_class, IndexView)
+
+    def test_uses_expected_template(self):
+        """想定したテンプレートのレスポンスが返ってくるかテスト"""
+        response = self.client.get(reverse('prof:index'))
+        self.assertTemplateUsed(response, 'prof/index.html')
 
     def test_should_return_profile_home_address(self):
         """DBの「home_address」が表示されるかテスト"""
@@ -90,7 +85,19 @@ class IndexPageRenderProfileTest(TestCase):
 
 
 class StudyPageTest(TestCase):
-    """StudyViewに対するテスト"""
+    """Studyのテスト"""
+    def setUp(self):
+        """"テストの初期設定"""
+        self.study = Study.objects.create(
+            title='title',
+            url='https://github.com/',
+        )
+        self.comments = Comments.objects.create(
+            study=self.study,
+            comment='comment',
+            created_at=datetime.date.today(),
+        )
+
     def test_get_return_200(self):
         """ステータスコード200のレスポンスが返ってくるかテスト"""
         response = self.client.get(reverse('prof:study'))
@@ -105,21 +112,6 @@ class StudyPageTest(TestCase):
         """想定したテンプレートのレスポンスが返ってくるかテスト"""
         response = self.client.get(reverse('prof:study'))
         self.assertTemplateUsed(response, 'prof/study.html')
-
-
-class StudyPageRenderStudyTest(TestCase):
-    """StudyViewに対するテスト(Studyモデルのレンダリング)"""
-    def setUp(self):
-        """"テストの初期設定"""
-        self.study = Study.objects.create(
-            title='title',
-            url='https://github.com/',
-        )
-        self.comments = Comments.objects.create(
-            study=self.study,
-            comment='comment',
-            created_at=datetime.date.today(),
-        )
 
     def test_should_return_study_title(self):
         """DBの「title」が表示されるかテスト"""
