@@ -1,8 +1,8 @@
 """
 profアプリケーションのテストコードファイル
 
-1. Index
-2. Study
+- Index
+- Study
 """
 import datetime
 

@@ -1,8 +1,8 @@
 """
 profアプリケーションのビュー定義ファイル
 
-1. indexページ
-2. studyページ
+- indexページ
+- studyページ
 """
 from django.db.models import Max
 from django.views.generic import ListView

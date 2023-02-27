@@ -1,8 +1,8 @@
 """
 profアプリケーションのURLマッピング定義ファイル
 
-1. indexページ
-2. studyページ
+- indexページ
+- studyページ
 """
 from django.urls import path
 

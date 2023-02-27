@@ -1,8 +1,8 @@
 """
 プロジェクトのURLマッピング定義ファイル
 
-1. 管理サイトページ
-2. profアプリケーションの各ページ
+- 管理サイトページ
+- profアプリケーションの各ページ
 """
 from django.conf import settings
 from django.contrib import admin
