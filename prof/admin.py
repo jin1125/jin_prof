@@ -1,4 +1,4 @@
-"""profアプリケーションの管理サイト設定ファイル"""
+"""管理サイト設定ファイル"""
 from django.contrib import admin
 
 from prof.models import CareersList
