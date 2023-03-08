@@ -58,7 +58,7 @@ jobs:
           key: ${{ secrets.DEPLOY_KEY }}
           script: |
             cd ${{ secrets.DEPLOY_DIR }}
-            workon venv
+            source venv/bin/activate
             sudo git pull origin main
             pip3 install -r requirements.txt
             python3 manage.py migrate
