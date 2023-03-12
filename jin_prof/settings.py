@@ -67,11 +67,11 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        },
         'require_debug_true': {
             '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
         },
     },
     'formatters': {
@@ -97,11 +97,6 @@ LOGGING = {
     },
     'loggers': {
         '': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-        'django': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
             'propagate': False,
